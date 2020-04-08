@@ -9,6 +9,7 @@ const Food = require("../models/food");
 // RETREIVE all books
 router.get("/", function(req, res) {
   Food.find({}, function(err, food_list) {
+    console.log(food_list)
     res.render("index", { food: food_list });
   });
 
