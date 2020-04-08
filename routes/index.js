@@ -2,8 +2,6 @@
 // Route handlers
 const express = require("express");
 const router = express.Router();
-// const http = require("http");
-const axios = require("axios");
 
 //import data models
 const Food = require("../models/food");
@@ -11,7 +9,7 @@ const Food = require("../models/food");
 // RETREIVE all books
 router.get("/", function(req, res) {
   Food.find({}, function(err, food_list) {
-    res.render("index", { books: food_list });
+    res.render("index", { food: food_list });
   });
 
 

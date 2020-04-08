@@ -6,10 +6,10 @@
   Here's what your store is currently offering: 
 </p>
 
-  <% if (locals.items) { %> 
-    <% JSON.stringify(items) %> 
+  <% if (locals.food) { %> 
+    <% JSON.stringify(food) %> 
       <ul>      
-        <% items.forEach(result=>{ %>
+        <% food.forEach(result=>{ %>
           <%= result%>
         <% }); %>
       </ul>
