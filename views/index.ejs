@@ -8,10 +8,9 @@
 
   <% if (locals.food) { %> 
     <% JSON.stringify(food) %> 
-<!--       <ul>      
         <% food.forEach(result=>{ %>
+      <ol> 
           <%= result%>
-        <% }); %>
-      </ul>
-  <% }%>  -->
-<%=food%>
+      </ol>
+    <% }); %>
+  <% }%> 
