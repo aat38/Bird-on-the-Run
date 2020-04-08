@@ -39,8 +39,8 @@ apirouter.put("/:item", function(req, res) {
 });
 
 //DELETE
-apirouter.delete("/:item", function(req, res) {
-  Food.find(req.params.item, function(err, food) {
+apirouter.delete("/:id", function(req, res) {
+  Food.find(req.params.id, function(err, food) {
     food.remove(function(err) {
       if (err) {
         res.status(500).send(err);
