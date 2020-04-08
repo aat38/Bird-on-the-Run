@@ -1,3 +1,16 @@
 <p>
   hey
 </p>
+
+<p>
+  Here's what your store is currently offering: 
+</p>
+
+  <% if (locals.items) { %> 
+    <% JSON.stringify(items) %> 
+      <ul>      
+        <% items.forEach(result=>{ %>
+          <%= result%>
+        <% }); %>
+      </ul>
+  <% }%> 

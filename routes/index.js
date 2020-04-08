@@ -6,12 +6,12 @@ const router = express.Router();
 const axios = require("axios");
 
 //import data models
-const Book = require("../models/book");
+const Food = require("../models/food");
 
 // RETREIVE all books
 router.get("/", function(req, res) {
-  Book.find({}, function(err, book_list) {
-    res.render("index", { books: book_list });
+  Food.find({}, function(err, food_list) {
+    res.render("index", { books: food_list });
   });
 
 

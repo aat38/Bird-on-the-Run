@@ -20,29 +20,28 @@ apirouter.get("/:item", function(req, res) {
   });
 });
 
-//CREATE a new store item based on information in body
+//CREATE a new food item based on information in body
 apirouter.post("/", function(req, res) {
   let food = new Food(req.body);
   food.save();
   res.status(201).send(food);
 });
 
-//UPDATE
+//UPDATE a food item based on information in body
 apirouter.put("/:item", function(req, res) {
-  Food.findById(req.params.bookId, function(err, book) {
-    book.title = req.body.title;
-    book.author = req.body.author;
-    book.link = req.body.link; /////////modification////////////
-    console.log(book.link);
-    book.save();
-    res.json(book);
+  Food.findById(req.params.item, function(err, food) {
+    food.item = req.body.item;
+    food.price = req.body.price;
+    food.ingredients = req.body.ingredients; 
+    food.save();
+    res.json(food);
   });
 });
 
 //DELETE
-apirouter.delete("/:bookId", function(req, res) {
-  Book.findById(req.params.bookId, function(err, book) {
-    book.remove(function(err) {
+apirouter.delete("/:item", function(req, res) {
+  Food.findById(req.params.item, function(err, food) {
+    food.remove(function(err) {
       if (err) {
         res.status(500).send(err);
       } else {
@@ -51,4 +50,4 @@ apirouter.delete("/:bookId", function(req, res) {
     });
   });
 });
-module.exports = router;
+module.exports = apirouter;
