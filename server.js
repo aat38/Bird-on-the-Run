@@ -27,7 +27,7 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, retryWrites: true });
 const apiRouter = require("./routes/api");
 const indexRouter = require("./routes/index");
 
-app.use("/", indexRouter);
+app.use("/store/", indexRouter);
 app.use("/api/", apiRouter);
 
 //----------------------------ROUTES-------------------------------------

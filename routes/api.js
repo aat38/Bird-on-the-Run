@@ -1,28 +1,28 @@
-// -----------
+// -----------All of these routes begin with /api/------------
 // Route handlers
 const express = require("express");
-const router = express.Router();
+const apirouter = express.Router();
 
 //import data models
-const Book = require("../models/book");
+const Food = require("../models/food");
 
-// RETREIVE all books
-router.get("/", function(req, res) {
-  Book.find({}, function(err, book_list) {
-    res.json(book_list);
+// RETREIVE all Food items and return as food_list
+apirouter.get("/", function(req, res) {
+  Food.find({}, function(err, food_list) {
+    res.json(food_list);
   });
 });
 
-// RETRIEVE a specific book
-router.get("/:bookId", function(req, res) {
-  Book.findById(req.params.bookId, function(err, book) {
-    res.json(book);
+// RETRIEVE a specific item at the store
+apirouter.get("/:item", function(req, res) {
+  Food.findById(req.params.item, function(err, item) {
+    res.json(item);
   });
 });
 
 //CREATE
-router.post("/", function(req, res) {
-  let book = new Book(req.body);
+apirouter.post("/", function(req, res) {
+  let food = new Food(req.body);
   book.save();
   res.status(201).send(book);
 });
