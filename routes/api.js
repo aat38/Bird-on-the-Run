@@ -40,7 +40,7 @@ apirouter.put("/:item", function(req, res) {
 
 //DELETE
 apirouter.delete("/:item", function(req, res) {
-  Food.findById(req.params.item, function(err, food) {
+  Food.find(req.params.item, function(err, food) {
     food.remove(function(err) {
       if (err) {
         res.status(500).send(err);
