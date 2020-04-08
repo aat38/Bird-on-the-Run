@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 const FoodSchema = new Schema(
   {
     item : String,
-    price : Number
+    price : Number, 
+    ingredients: [String]
   }
 );
 
