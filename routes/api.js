@@ -40,7 +40,7 @@ apirouter.put("/:item", function(req, res) {
 });
 
 //DELETE
-router.delete("/:bookId", function(req, res) {
+apirouter.delete("/:bookId", function(req, res) {
   Book.findById(req.params.bookId, function(err, book) {
     book.remove(function(err) {
       if (err) {
