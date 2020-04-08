@@ -28,8 +28,8 @@ apirouter.post("/", function(req, res) {
 });
 
 //UPDATE a food item based on information in body
-apirouter.put("/:item", function(req, res) {
-  Food.findById(req.params.item, function(err, food) {
+apirouter.put("/:id", function(req, res) {
+  Food.findById(req.params.id, function(err, food) {
     food.item = req.body.item;
     food.price = req.body.price;
     food.ingredients = req.body.ingredients; 

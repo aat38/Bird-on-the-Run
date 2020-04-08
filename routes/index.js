@@ -12,7 +12,6 @@ router.get("/", function(req, res) {
     res.render("index", { food: food_list });
   });
 
-
 });
 
 module.exports = router;
