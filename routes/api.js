@@ -20,16 +20,16 @@ apirouter.get("/:item", function(req, res) {
   });
 });
 
-//CREATE
+//CREATE a new store item based on information in body
 apirouter.post("/", function(req, res) {
   let food = new Food(req.body);
-  book.save();
-  res.status(201).send(book);
+  food.save();
+  res.status(201).send(food);
 });
 
 //UPDATE
-router.put("/:bookId", function(req, res) {
-  Book.findById(req.params.bookId, function(err, book) {
+apirouter.put("/:item", function(req, res) {
+  Food.findById(req.params.bookId, function(err, book) {
     book.title = req.body.title;
     book.author = req.body.author;
     book.link = req.body.link; /////////modification////////////
