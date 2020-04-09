@@ -84,12 +84,21 @@ apirouter.get("/cart/items", function(req, res) {
 });
 
 //delete entire cart
-apirouter.delete("/cart/clear", function(req, res) {
-Cart.deleteMany({ incart: true }, function (err) {});
+apirouter.delete("/cart/clear/:incart", function(req, res) {
+  
+  
+  
+//   router.get('/obj/:id',  function(req, res) {
+// var id = req.params.id;
+
+Cart.findAll({incart: req.params.incart}, function (err, result) {
+    result.remove(function(err) {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(204).send("removed");
+      }
+    });
   });
-
-
-  
-
-  
+  });
 module.exports = apirouter;
