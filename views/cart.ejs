@@ -5,17 +5,18 @@
 <%})%>
 
 <%var list = {}%>
-
 <%for (var i = 0; i<checkout.length; i++){%>
- <%       if (list.hasOwnProperty(checkout[i])){%>
-                            list.checkout[i] += 1;%>
-                            }else{%>
-                            list.[checkout[i]]=1;%>
-    <%    }%>
-                  
-   <% }%>
+  <% if (list.hasOwnProperty(checkout[i])){%>
+          <%list[checkout[0]] = list[checkout[0]]+1%>
+      <%}else{%>
+          <%list[checkout[i]]='1'%>
+  <%}%>
+<% }%>
 
-<%list.checkout[0]=1%>
+<%list[checkout[0]]='1'%>
+<%list[checkout[0]] = list[checkout[0]]+1%>
+<%=list[checkout[0]].length %>
+<%=Object.keys(list)%>
 <%=JSON.stringify(list)%>
 
 
