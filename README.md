@@ -1,3 +1,6 @@
+## Credit for menu items and restaurant name:
+- [bird on the run : pittsburgh](https://static1.squarespace.com/static/5a159de8cf81e02d03bcdd33/t/5c12dbef88251b84e4721b20/1544739831064/BOTR_MENU.pdf)
+
 #### Steps
 - Create a database for this project in your MongoDB instance. (Assuming you completed Activity 9, to setup MongoDB)
 - Connect your project to the MongoDB database you created in Activity 9. Make sure to add mongoose to your list of dependencies in the package.json file. The dependencies section should now look like: "dependencies": { "express": "^4.16.4", "mongoose": "^5.7.7", "ejs": "^2.7.1" },
@@ -19,7 +22,6 @@
 - All data will be transferred in the JSON data format.
 - Populate your MongoDB with some data to support your operations, on initialization. In other words, when I go to your app, there should already be data to "play around with."
 - Make an endpoint that lists all all of your resources in your "database" (JSON file).  For example, "GET /student" would return a JSON list of all the student objects in your application and "GET /courses" would provide a list of all the course objects. You should have at least 6 instances of resources in your application, they can be of any types.
-
 
 ### Resources
 - [pass json info from ejs var](https://stackoverflow.com/questions/13788314/express-and-ejs-to-render-a-json)
