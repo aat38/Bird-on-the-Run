@@ -7,32 +7,6 @@
 </p>
 
   <% if (locals.food) { %> 
-  <% JSON.stringify(food)  %> 
-
-
-
-
-  <select id="add">
-     <!--  keeping the selected letter visible in dropdown box -->
-    <% if (locals.firstLetter) { %> 
-      <option value="" disabled selected hidden><% JSON.stringify(firstLetter) %> <%= firstLetter %> </option>
-    <% }%>
-    <!--  using ascii values to populate alphabet -->
-    <% for (var i =97 ; i <=122;  i++ ) { %> 
-      <% var str =  String.fromCharCode(i) %>
-      <option value='<%= str %>'><%=str %></option>
-    <% } %>
-  </select>
-  <input type="submit">
-</form>
-
-
-
-
-
-
-
-
 
       <ul> 
       <% food.forEach(result=>{ %>
@@ -40,12 +14,10 @@
         <span> <%=result.ingredients%></span>
         
 <!--    increase quant of item to order    -->
-        <form id="add" onSubmit="add(<%=result%>);">        
-        <button type="submit"> + </button>
+        <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
           
 <!--    decrease quant of item to order    -->
-        <form id="del" onSubmit="del(<%=result%>);">        
-        <button type="submit"> - </button>
+        <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
           
       </ul>
       <% });%>
