@@ -9,25 +9,28 @@
   <% if (locals.food) { %> 
       <ul> 
       <% food.forEach(result=>{ %>
+        
         <li><%= result.item%> <%= result.price%></li>
         <span> <%=result.ingredients%></span>
         
 <!--    increase quant of item to order    -->
-        <form id="add" onSubmit="add('<%=result%>');">        
+        <form id="add" onSubmit="add();">        
         <button type="submit"> + </button>
-        </form>
+         </form>
  
 <!--    decrease quant of item to order    -->
-        <form id="del" onSubmit="del('<%=result%>');">        
+        <form id="del" onSubmit="del();">        
         <button type="submit"> - </button>
         </form>
+
       </ul>
       <% });%>
   <% }%> 
 
 
 <script type=text/javascript>
-  function add(result) {
+  function add() {
+      var result = <% JSON.stringify(result) %>           
     console.log(result.item + "tbadded")
     fetch('https://aat38-assignment3partb.glitch.me/api/cart/' , {
         headers:{"content-type":"application/json"},
@@ -44,7 +47,7 @@
     })
   }
   
-  function del(result) {
+  function del() {
         console.log(result.item + "tb deleted")
     fetch('https://aat38-assignment3partb.glitch.me/api/cart/'+result.item , {
         method: 'DELETE'
