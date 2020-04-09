@@ -7,31 +7,54 @@
 </p>
 
   <% if (locals.food) { %> 
+  <% JSON.stringify(food)  %> 
+
+
+
+
+  <select id="add">
+     <!--  keeping the selected letter visible in dropdown box -->
+    <% if (locals.firstLetter) { %> 
+      <option value="" disabled selected hidden><% JSON.stringify(firstLetter) %> <%= firstLetter %> </option>
+    <% }%>
+    <!--  using ascii values to populate alphabet -->
+    <% for (var i =97 ; i <=122;  i++ ) { %> 
+      <% var str =  String.fromCharCode(i) %>
+      <option value='<%= str %>'><%=str %></option>
+    <% } %>
+  </select>
+  <input type="submit">
+</form>
+
+
+
+
+
+
+
+
+
       <ul> 
       <% food.forEach(result=>{ %>
-        
         <li><%= result.item%> <%= result.price%></li>
         <span> <%=result.ingredients%></span>
         
 <!--    increase quant of item to order    -->
-        <form id="add" onSubmit="add();">        
+        <form id="add" onSubmit="add(<%=result%>);">        
         <button type="submit"> + </button>
-         </form>
- 
+          
 <!--    decrease quant of item to order    -->
-        <form id="del" onSubmit="del();">        
+        <form id="del" onSubmit="del(<%=result%>);">        
         <button type="submit"> - </button>
-        </form>
-
+          
       </ul>
       <% });%>
   <% }%> 
 
 
 <script type=text/javascript>
-  function add() {
-      var result = <% JSON.stringify(result) %>           
-    console.log(result.item + "tbadded")
+  function add(result) {
+    console.log(result)
     fetch('https://aat38-assignment3partb.glitch.me/api/cart/' , {
         headers:{"content-type":"application/json"},
         body: JSON.stringify({
@@ -47,7 +70,7 @@
     })
   }
   
-  function del() {
+  function del(result) {
         console.log(result.item + "tb deleted")
     fetch('https://aat38-assignment3partb.glitch.me/api/cart/'+result.item , {
         method: 'DELETE'
