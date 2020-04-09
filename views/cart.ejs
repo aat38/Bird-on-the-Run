@@ -14,11 +14,10 @@
   <% }%>
 
 <%for (var j = 0; i<list.length; i++){%>
-  <%Object.keys(list[j])=Object.values(list[j]).length%>
+  <%list[Object.keys(list)[j]]=list[checkout[j]].length%>
   <%}%>
-
 <%=JSON.stringify(list)%>
-
-
+<%=list[checkout[0]].length%>
+<%={(Object.keys(list)[j]):(list[checkout[0]].length)}%>
 <%}%>
 
