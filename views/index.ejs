@@ -55,34 +55,50 @@
           <% if (locals.cart) { %> 
             <% food.forEach(result=>{ %>
             <ul> 
-              <li><%= result.item%></li>
-              <span class="price">$<%= result.price%></span>
-              <span class="ingredients"> <%=result.ingredients%></span>
-              <div class="button-group">
-      <!--    increase quant of item to order    -->
-              <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
-
-      <!--    decrease quant of item to order    -->
-              <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
-
-      <!--    show quantity of item that has been added to your cart    -->
-              <% var quantity=0%>
-              <% for (var i=0; i<Object.keys(cart).length;i++){             %>
-              <%  if (Object.values(cart)[i].item === result.item){         %>
-              <%      quantity=quantity+1                                   %>
-              <%  }                                                         %>
-              <% }                                                          %>
-
-              <span class="quantity"><%= quantity%></span>
+            <div class="row">
+              <div class="col-8">
+                <li><%= result.item%></li>
               </div>
+            
+              <div class="button-group">
+          <!--    increase quant of item to order    -->
+                  <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
 
+          <!--    decrease quant of item to order    -->
+                  <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
+
+          <!--    show quantity of item that has been added to your cart    -->
+                  <% var quantity=0%>
+                  <% for (var i=0; i<Object.keys(cart).length;i++){             %>
+                  <%  if (Object.values(cart)[i].item === result.item){         %>
+                  <%      quantity=quantity+1                                   %>
+                  <%  }                                                         %>
+                  <% }                                                          %>
+
+                  <span class="quantity"><%= quantity%></span>
+                </div>
+              
+            </div>
+            <div class="row">
+              <div class="col-1">
+              </div>
+              <div class="col-1">
+                <span class="price">$<%= result.price%></span>
+              </div>
+               <div class="col-9">
+                <span class="ingredients"> <%=result.ingredients%></span>
+              </div>             
+
+              
+            </div>
+                
             </ul>
             <% });%>
           <% }%> 
         <% }%>     
-        
-      
-      </div>
+<!--  column div -->
+      </div> 
+<!--row div-->
   </div> 
 
   
