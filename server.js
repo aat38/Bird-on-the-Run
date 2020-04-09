@@ -20,6 +20,7 @@ const mongoDB =
   process.env.HOST +
   "/" +
   process.env.DATABASE;
+
 mongoose.connect(mongoDB, { useNewUrlParser: true, retryWrites: true });
 
 

@@ -104,7 +104,8 @@
     <div class="row">
         <div class="col-10">
         </div>
-        <button onclick="clear()">Clear Quantities</button>
+      
+        <button onclick="clear()" > + </button>
       
         <form id='checkout'>        
           <button class="checkout-button"formaction="/checkout" method"GET" type="submit">Checkout</button>
@@ -136,11 +137,22 @@
       console.log(err);
     })
   }
+   
+  function del(result) {
+    console.log(result+" deleted from cart")
+    result = JSON.parse(result);
+    fetch('https://aat38-assignment3b.glitch.me/api/cart/'+result.item , {
+        method: 'DELETE'
+    }).then(resp=>{
+     window.location.reload();
+    }, err=>{
+      console.log(err);
+    })
+  }
   
-  function del(result) {
-    console.log(result+" deleted from cart")
-    result = JSON.parse(result);
-    fetch('https://aat38-assignment3b.glitch.me/api/cart/'+result.item , {
+  function clear() {
+    console.log('attemnpting to fetch')
+    fetch('https://aat38-assignment3b.glitch.me/delete' , {
         method: 'DELETE'
     }).then(resp=>{
      window.location.reload();
@@ -148,24 +160,5 @@
       console.log(err);
     })
   }
-  function del(result) {
-    console.log(result+" deleted from cart")
-    result = JSON.parse(result);
-    fetch('https://aat38-assignment3b.glitch.me/api/cart/'+result.item , {
-        method: 'DELETE'
-    }).then(resp=>{
-     window.location.reload();
-    }, err=>{
-      console.log(err);
-    })
-    
-  }function clear() {
-    fetch('https://aat38-assignment3b.glitch.me/api/cart/clear' , {
-        method: 'DELETE'
-    }).then(resp=>{
-     window.location.reload();
-    }, err=>{
-      console.log(err);
-    })
-  }
+  
 </script> 

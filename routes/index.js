@@ -2,7 +2,7 @@
 // Route handlers
 const express = require("express");
 const router = express.Router();
-const server = require
+const mongoose = require("mongoose");
 
 //import data models
 const Food = require("../models/food");
@@ -30,23 +30,10 @@ router.get("/checkout", function(req, res) {
 
 //delete entire cart
 router.delete("/delete", function(req, res) {
-  Cart.remove({}, function(err,removed) {
-
+mongoose.connection.collections['carts'].drop( function(err) {
+    console.log('collection dropped');
+});
 });
 
   
-  
-// //   router.get('/obj/:id',  function(req, res) {
-// // var id = req.params.id;
-
-// Cart.find({incart: req.params.delete}, function (err, result) {
-//     result.remove(function(err) {
-//       if (err) {
-
-//       } else {
-// res.render("index", { cart: result });      }
-//     });
-//   });
-});
-
 module.exports = router;
