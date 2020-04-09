@@ -19,3 +19,7 @@
 - All data will be transferred in the JSON data format.
 - Populate your MongoDB with some data to support your operations, on initialization. In other words, when I go to your app, there should already be data to "play around with."
 - Make an endpoint that lists all all of your resources in your "database" (JSON file).  For example, "GET /student" would return a JSON list of all the student objects in your application and "GET /courses" would provide a list of all the course objects. You should have at least 6 instances of resources in your application, they can be of any types.
+
+
+### Resources
+- [pass json info from ejs var](https://stackoverflow.com/questions/13788314/express-and-ejs-to-render-a-json)
