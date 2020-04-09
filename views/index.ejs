@@ -68,7 +68,7 @@
                       <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
 
                       <!--    decrease quant of item to order    -->
-                      <button disabled=<%- quantity <1 %> onclick="del('<%= JSON.stringify(result) %>')" > - </button>
+                      <button onclick="del('<%= JSON.stringify(result) %>', '<%= JSON.stringify(quantity)%>')"> - </button>
 
                        <!--    show quantity of item that has been added to your cart    -->
                       <% var quantity=0%>
@@ -134,7 +134,9 @@
     })
   }
   
-  function del(result) {
+  function del(result, quant) {
+    console.log(quant)
+    if (quant>=1){
     console.log(result+" deleted from cart")
     result = JSON.parse(result);
     fetch('https://aat38-assignment3b.glitch.me/api/cart/'+result.item , {
@@ -143,6 +145,7 @@
      window.location.reload();
     }, err=>{
       console.log(err);
-    })
+    })      
+    }
   }
 </script> 
