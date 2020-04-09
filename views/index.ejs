@@ -34,15 +34,18 @@
        <% cart.forEach(result=>{ %>
           <%= result.item%>
        <% })%> 
-    <%
-var count = 0;
-for (var i in Object.keys(cart)) {
-  if (cart[Object.keys(cart)[i]].hasOwnProperty('Chicken Sandwich')) {
-    count++;
-  }
-}
-  console.log(cart[0].hasOwnProperty('Chicken Sandwich'))
 
+
+<%
+var  filteredObject = {};
+for(e in cart) {
+    if (cart.hasOwnProperty(e)) {
+      if (acceptedValues.indexOf(cart[e]) != -1) {
+          filteredObject[e] = cart[e];
+      }
+    }
+}
+console.log(filteredObject);
 %>
 
     <% }%> 
