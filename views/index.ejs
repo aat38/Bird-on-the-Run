@@ -1,17 +1,17 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 
 
-<p>
+<h1>
   Here's what your store is currently offering: 
-</p>
+</h1>
 
   <% if (locals.food) { %> 
     <% if (locals.cart) { %> 
       <% food.forEach(result=>{ %>
       <ul> 
         <li><%= result.item%> <%= result.price%></li>
-        <span> <%=result.ingredients%></span>
-        <div>
+        <span class="ingredients"> <%=result.ingredients%></span>
+        <div class="button-group">
 <!--    increase quant of item to order    -->
         <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
           
@@ -26,7 +26,7 @@
         <%  }                                                         %>
         <% }                                                          %>
         
-        <%= quantity%>
+        <span class="quantity"><%= quantity%></span>
         </div>
 
       </ul>
