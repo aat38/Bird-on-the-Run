@@ -6,53 +6,86 @@
 <body>
   <header>
     <div class="row">
-     <h1>
-      Bird on the Run 
-    </h1>
-    <img
-          id="chicken-logo"
-          alt="Chicken Logo"
-          src="https://cdn.glitch.com/8cae72da-8ec9-4d88-83b4-ae815e59f15e%2Fmaclife150400060-removebg-preview.png?v=1586444409101"
-          height="200" width="200"
-      />      
-    </div>
-
+      <div class="col-4">
+      </div>
+        <div class="col-8">
+        <h1>
+        Bird on the Run 
+        </h1>
+        </div>
+      <div class="col-4">
+      </div> 
+    </div> 
+    
+    <div class="row">
+      <div class="col-5">
+      </div>
+        <div class="col-1">
+        <img
+            id="chicken-logo"
+            alt="Chicken Logo"
+            src="https://cdn.glitch.com/8cae72da-8ec9-4d88-83b4-ae815e59f15e%2Fmaclife150400060-removebg-preview.png?v=1586444409101"
+            height="200" width="200"
+        />  
+        </div>
+      <div class="col-5">
+      </div> 
+    </div> 
+  
+  
   </header>
 
 <section class="menu">
-<h2>
-  Menu
-</h2>
+  <div class="row">
+      <div class="col-1">
+      </div>
+      <div class="col-8">
+        <h2>
+          Menu
+        </h2>
+      </div>
+  </div> 
 
-  <% if (locals.food) { %> 
-    <% if (locals.cart) { %> 
-      <% food.forEach(result=>{ %>
-      <ul> 
-        <li><%= result.item%></li>
-        <span class="price">$<%= result.price%></span>
-        <span class="ingredients"> <%=result.ingredients%></span>
-        <div class="button-group">
-<!--    increase quant of item to order    -->
-        <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
-          
-<!--    decrease quant of item to order    -->
-        <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
-        
-<!--    show quantity of item that has been added to your cart    -->
-        <% var quantity=0%>
-        <% for (var i=0; i<Object.keys(cart).length;i++){             %>
-        <%  if (Object.values(cart)[i].item === result.item){         %>
-        <%      quantity=quantity+1                                   %>
-        <%  }                                                         %>
-        <% }                                                          %>
-        
-        <span class="quantity"><%= quantity%></span>
-        </div>
+  
+  <div class="row">
+      <div class="col-1">
+      </div>
+      <div class="col-11">
+        <% if (locals.food) { %> 
+          <% if (locals.cart) { %> 
+            <% food.forEach(result=>{ %>
+            <ul> 
+              <li><%= result.item%></li>
+              <span class="price">$<%= result.price%></span>
+              <span class="ingredients"> <%=result.ingredients%></span>
+              <div class="button-group">
+      <!--    increase quant of item to order    -->
+              <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
 
-      </ul>
-      <% });%>
-  <% }%> 
-  <% }%> 
+      <!--    decrease quant of item to order    -->
+              <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
+
+      <!--    show quantity of item that has been added to your cart    -->
+              <% var quantity=0%>
+              <% for (var i=0; i<Object.keys(cart).length;i++){             %>
+              <%  if (Object.values(cart)[i].item === result.item){         %>
+              <%      quantity=quantity+1                                   %>
+              <%  }                                                         %>
+              <% }                                                          %>
+
+              <span class="quantity"><%= quantity%></span>
+              </div>
+
+            </ul>
+            <% });%>
+          <% }%> 
+        <% }%>     
+        
+      
+      </div>
+  </div> 
+
+  
 </section>
 
 
