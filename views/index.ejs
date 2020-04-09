@@ -68,7 +68,7 @@
                       <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
 
                       <!--    decrease quant of item to order    -->
-                      <button onclick="del('<%= JSON.stringify(result) %>', '<%= JSON.stringify(quantity)%>')"> - </button>
+                      <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
 
                        <!--    show quantity of item that has been added to your cart    -->
                       <% var quantity=0%>
@@ -104,7 +104,9 @@
     <div class="row">
         <div class="col-10">
         </div>
-        <form id='form'>        
+        <button onclick="clear()">Clear Quantities</button>
+      
+        <form id='checkout'>        
           <button class="checkout-button"formaction="/checkout" method"GET" type="submit">Checkout</button>
         </form>
     </div> 
@@ -134,9 +136,7 @@
     })
   }
   
-  function del(result, quant) {
-    console.log(quant)
-    if (quant>=1){
+  function del(result) {
     console.log(result+" deleted from cart")
     result = JSON.parse(result);
     fetch('https://aat38-assignment3b.glitch.me/api/cart/'+result.item , {
@@ -145,7 +145,26 @@
      window.location.reload();
     }, err=>{
       console.log(err);
-    })      
-    }
+    })
+  }
+  function del(result) {
+    console.log(result+" deleted from cart")
+    result = JSON.parse(result);
+    fetch('https://aat38-assignment3b.glitch.me/api/cart/'+result.item , {
+        method: 'DELETE'
+    }).then(resp=>{
+     window.location.reload();
+    }, err=>{
+      console.log(err);
+    })
+    
+  }function clear() {
+    fetch('https://aat38-assignment3b.glitch.me/api/cart/clear' , {
+        method: 'DELETE'
+    }).then(resp=>{
+     window.location.reload();
+    }, err=>{
+      console.log(err);
+    })
   }
 </script> 
