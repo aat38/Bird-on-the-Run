@@ -1,7 +1,8 @@
 <% if (locals.cart) { %> 
 <% var checkout=[] %>
   <% cart.forEach(order=>{ %>                                           
-         <% checkout.push(<%=order.item%>) %>
+         <%checkout.push(order.item)%>
 <%})%>
 <%=checkout%>
 <%}%>
+
