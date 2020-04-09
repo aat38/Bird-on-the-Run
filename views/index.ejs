@@ -13,13 +13,14 @@
         <span> <%=result.ingredients%></span>
         
 <!--    increase quant of item to order    -->
-        <form id="add" onSubmit="add(<%=result%>);">        
+        <form id="add" onSubmit="add('<%=result%>');">        
         <button type="submit"> + </button>
-          
+        </form>
+ 
 <!--    decrease quant of item to order    -->
-        <form id="del" onSubmit="del(<%=result%>);">        
+        <form id="del" onSubmit="del('<%=result%>');">        
         <button type="submit"> - </button>
-          
+        </form>
       </ul>
       <% });%>
   <% }%> 
