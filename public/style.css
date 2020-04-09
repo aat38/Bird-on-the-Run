@@ -1,3 +1,10 @@
 ul {
-  color:purple
+  list-style-type: none;
+}
+ul li {
+  background: url("https://cdn.glitch.com/8cae72da-8ec9-4d88-83b4-ae815e59f15e%2Fsimple-black-and-white-chicken-leg-removebg-preview.png?v=1586445171689");
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  padding-left: 2rem;
+  padding-bottom: 1rem;
 }
