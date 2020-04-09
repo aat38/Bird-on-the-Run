@@ -27,10 +27,9 @@
 <script type=text/javascript>
   function add(result) {
     result = JSON.parse(result);
-    fetch('https://aat38-assignment3partb.glitch.me/api/cart/' , {
+    fetch('https://aat38-assignment3partb.glitch.me/api/cart/', {
         headers:{
-          "content-type":"application/json",
-          "Origin": "https://aat38-assignment3b.glitch.me"
+          "content-type":"application/json"
         },
         body: JSON.stringify({
           item: result.item,
