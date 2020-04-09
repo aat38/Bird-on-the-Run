@@ -27,4 +27,26 @@ router.get("/checkout", function(req, res) {
         res.render("cart", { cart: cart_list });
     });   
  });
+
+//delete entire cart
+router.delete("/delete", function(req, res) {
+  Cart.remove({}, function(err,removed) {
+
+});
+
+  
+  
+// //   router.get('/obj/:id',  function(req, res) {
+// // var id = req.params.id;
+
+// Cart.find({incart: req.params.delete}, function (err, result) {
+//     result.remove(function(err) {
+//       if (err) {
+
+//       } else {
+// res.render("index", { cart: result });      }
+//     });
+//   });
+});
+
 module.exports = router;
