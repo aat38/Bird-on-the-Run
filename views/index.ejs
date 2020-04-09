@@ -20,9 +20,22 @@
 <!--    decrease quant of item to order    -->
         <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
 
-        <% if (locals.cart) { %> 
-       
-        <% }%> 
+        <%
+        // console.log(Object.values(cart)[0].item)
+        // console.log(Object.keys(cart).length)
+
+        var count =0
+        for (var i; i<=Object.keys(cart).length;i++){
+          if (Object.values(cart)[i].item === result.item){
+              count=count+1
+              }
+        }        
+        %>
+        <p>
+          <%= count%>
+        </p>
+        
+        
       </ul>
       <% });%>
   <% }%> 
@@ -34,20 +47,6 @@
        <% cart.forEach(result=>{ %>
           <%= result.item%>
        <% })%> 
-
-
-<%
-var  filteredObject = {};
-for(e in cart) {
-    if (cart.hasOwnProperty(e)) {
-      if (acceptedValues.indexOf(cart[e]) != -1) {
-          filteredObject[e] = cart[e];
-      }
-    }
-}
-console.log(filteredObject);
-%>
-
     <% }%> 
 
  
