@@ -1,7 +1,9 @@
 <% if (locals.cart) { %> 
   <% var checkout=[] %>
+  <% var total= 0 %>
     <% cart.forEach(order=>{ %>                                           
            <%checkout.push(order.item)%>
+           <%total = total + order.price %>
   <%})%>
 
   <%var list = {}%>
@@ -12,12 +14,12 @@
             <%list[checkout[i]]='1'%>
     <%}%>
   <% }%>
-
-<%for (var j = 0; i<list.length; i++){%>
-  <%list[Object.keys(list)[j]]=list[checkout[j]].length%>
-  <%}%>
-<%=JSON.stringify(list)%>
-<%=list[checkout[0]].length%>
-<%={(Object.keys(list)[j]):(list[checkout[0]].length)}%>
+<%for (var j = 0; j<Object.keys(list).length; j++){%>
+    <ul>
+      <%=Object.keys(list)[j]%>
+      <%=(Object.values(list)[j].length)%>
+    </ul>
+<%}%>
 <%}%>
 
+<%=total%>
