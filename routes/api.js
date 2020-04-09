@@ -85,14 +85,9 @@ apirouter.get("/cart/items", function(req, res) {
 
 //delete entire cart
 apirouter.delete("/cart/clear", function(req, res) {
-   Cart.remove({incart: true}, function(err,items) {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(204).send("removed");
-      }
-    });
+Cart.deleteMany({ incart: true }, function (err) {});
   });
+
 
   
 
