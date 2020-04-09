@@ -11,7 +11,8 @@
     "ejs": "^3.0.2",
     "body-parser": "^1.19.0",
     "mongoose": "^5.9.7",
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "cors-anywhere": "^0.4.1"
   },
   "engines": {
     "node": "12.x"

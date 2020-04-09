@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require("mongoose");
+var cors_proxy = require('cors-anywhere');
 
 app.use(express.static('public'));//use the static files in the public folder
 app.set("view engine", "ejs");
@@ -33,14 +34,13 @@ app.use("/api/", apiRouter);
 
 //----------------------------ROUTER-------------------------------------
 
-var cors_proxy = require('cors-anywhere');
-cors_proxy.createServer({
-    originWhitelist: [], // Allow all origins
-    requireHeader: ['origin', 'x-requested-with'],
-    removeHeaders: ['cookie', 'cookie2']
-}).listen(process.env.PORT, () => {
-  console.log("Your app is listening on port " + cors_proxy.address().port);
-});
+//  const corsProxy= cors_proxy.createServer({
+//     originWhitelist: [], // Allow all origins
+//     requireHeader: ['origin', 'x-requested-with'],
+//     removeHeaders: ['cookie', 'cookie2']
+// }).listen(process.env.PORT, () => {
+//   console.log("Your app is listening on port " + corsProxy.address().port);
+// });
 
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
