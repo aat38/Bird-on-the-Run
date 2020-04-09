@@ -57,6 +57,7 @@ apirouter.delete("/:id", function(req, res) {
 //-------------routes to modify cart--------------------------
 //add an item to the cart
 apirouter.post("/cart/", function(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', 'https://aat38-assignment3b.glitch.me/cart/')
   let cart = new Cart(req.body);
   cart.save();
   console.log(req.body.item + " saved to cart")

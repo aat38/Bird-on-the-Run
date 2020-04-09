@@ -28,7 +28,10 @@
   function add(result) {
     result = JSON.parse(result);
     fetch('https://aat38-assignment3partb.glitch.me/api/cart/' , {
-        headers:{"content-type":"application/json"},
+        headers:{
+          "content-type":"application/json",
+          "Origin": "https://aat38-assignment3b.glitch.me"
+        },
         body: JSON.stringify({
           item: result.item,
           price: result.price,
