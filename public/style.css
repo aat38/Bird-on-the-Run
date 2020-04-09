@@ -3,7 +3,7 @@
   src: url(https://cdn.glitch.com/451312bc-7fb7-45c4-95a9-ce8d187f2475%2FBUBBLEGUMS.TTF?v=1579198337837);
 }
 
-h1, li{
+header h1, li{
   font-family: bubbleFont;
 }
 
