@@ -6,6 +6,7 @@ const apirouter = express.Router();
 //import data models
 const Food = require("../models/food");
 
+//----------routes to modify inventory------------------------
 // RETREIVE all Food items and return as food_list
 apirouter.get("/", function(req, res) {
   Food.find({}, function(err, food_list) {
@@ -50,4 +51,25 @@ apirouter.delete("/:id", function(req, res) {
     });
   });
 });
+
+//-------------routes to modify cart--------------------------
+//add an item to the cart
+apirouter.post("/", function(req, res) {
+  let food = new Food(req.body);
+  food.save();
+  res.status(201).send(food);
+});
+//delete an item from the cart
+apirouter.delete("/:id", function(req, res) {
+  Food.find(req.params.id, function(err, food) {
+    food.remove(function(err) {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(204).send("removed");
+      }
+    });
+  });
+});
+
 module.exports = apirouter;

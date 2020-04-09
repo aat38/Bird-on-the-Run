@@ -13,12 +13,12 @@
         <span> <%=result.ingredients%></span>
         
 <!--    increase quant of item to order    -->
-        <form id="add" onSubmit="add();">        
+        <form id="add" onSubmit="add(<%=result%>);">        
         <button value='<%=result.id%>'<type="submit"> + </button>
           
 <!--    decrease quant of item to order    -->
-        <form id="del" onSubmit="add();">        
-        <button type="submit"> - </button>
+        <form id="del" onSubmit="del(<%=result%>);">        
+        <button value='<%=result.id%>'<type="submit"> - </button>
           
       </ul>
       <% }); %>
@@ -26,10 +26,23 @@
 
 
 <script type=text/javascript>
-  function add() {
-    var word = document.getElementById('delWord').value;
-    console.log(word);
-    fetch('https://aat38-assignment3parta.glitch.me/edit/'+word , {
+  function add(id) {
+    fetch('https://aat38-assignment3parta.glitch.me/edit/'+id , {
+        headers:{"content-type":"application/json"},
+        body: JSON.stringify({
+          word: word,
+          def: def
+        }),
+        method: 'POST'
+    }).then(resp=>{
+      console.log(resp);
+    }, err=>{
+      console.log(err);
+    })
+  }
+  
+  function del(id) {
+    fetch('https://aat38-assignment3parta.glitch.me/edit/'+id , {
         method: 'DELETE'
     }).then(resp=>{
       console.log("resp");
