@@ -126,7 +126,8 @@
         body: JSON.stringify({
           item: result.item,
           price: result.price,
-          ingredients: result.ingredients
+          ingredients: result.ingredients,
+          incart: true
         }),
         method: 'POST'
     }).then(resp=>{

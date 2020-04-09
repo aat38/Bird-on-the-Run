@@ -77,7 +77,7 @@ apirouter.delete("/cart/:item", function(req, res) {
   });
 });
 //retrieve all items from the cart 
-apirouter.get("/cart/clear", function(req, res) {
+apirouter.get("/cart/items", function(req, res) {
   Cart.find({}, function(err, cart_list) {
     res.json(cart_list);
   });
@@ -85,8 +85,7 @@ apirouter.get("/cart/clear", function(req, res) {
 
 //delete entire cart
 apirouter.delete("/cart/clear", function(req, res) {
-   Cart.findOne({_v:0}, function(err,item) {
-    item.remove(function(err) {
+   Cart.remove({incart: true}, function(err,items) {
       if (err) {
         res.status(500).send(err);
       } else {
@@ -94,7 +93,7 @@ apirouter.delete("/cart/clear", function(req, res) {
       }
     });
   });
-});
+
   
 
   
