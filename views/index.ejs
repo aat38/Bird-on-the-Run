@@ -18,12 +18,21 @@
           
 <!--    decrease quant of item to order    -->
         <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
-          
+
+        <% if (locals.cart) { %> 
+       
+        <% }%> 
       </ul>
       <% });%>
   <% }%> 
-
-
+<p>
+  Cart
+</p>
+        <% if (locals.cart) { %> 
+       <% cart.forEach(result=>{ %>
+<%= result.item%>
+        <% })%> 
+    <% }%> 
 <script type=text/javascript>
   function add(result) {
     console.log(result+" added to cart")
