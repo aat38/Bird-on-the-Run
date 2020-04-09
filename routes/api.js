@@ -76,7 +76,7 @@ apirouter.delete("/cart/:item", function(req, res) {
   });
 });
 //retrieve all items from the cart 
-apirouter.get("/cart/", function(req, res) {
+apirouter.get("/cart/items", function(req, res) {
   Cart.find({}, function(err, cart_list) {
     res.json(cart_list);
   });
@@ -85,6 +85,7 @@ apirouter.get("/cart/", function(req, res) {
 //delete entire cart
 apirouter.delete("/cart/clear", function(req, res) {
  Cart.find({},function(err,cart) {
+    cart.collection.remove(function(err) {
       if (err) {
         res.status(500).send(err);
       } else {
@@ -92,5 +93,5 @@ apirouter.delete("/cart/clear", function(req, res) {
       }
     });
   });
-
+});
 module.exports = apirouter;
