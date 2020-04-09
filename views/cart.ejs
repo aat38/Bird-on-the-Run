@@ -3,6 +3,20 @@
   <% cart.forEach(order=>{ %>                                           
          <%checkout.push(order.item)%>
 <%})%>
-<%=checkout%>
-<%}%>
 
+<%var list = {}%>
+
+<%for (var i = 0; i<checkout.length; i++){%>
+ <%       if (list.hasOwnProperty(checkout[i])){%>
+                            list.checkout[i] += 1;%>
+                            }else{%>
+                            list.[checkout[i]]=1;%>
+    <%    }%>
+                  
+   <% }%>
+
+<%list.checkout[0]=1%>
+<%=JSON.stringify(list)%>
+
+
+<%}%>
