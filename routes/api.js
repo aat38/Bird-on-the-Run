@@ -75,5 +75,22 @@ apirouter.delete("/cart/:item", function(req, res) {
     });
   });
 });
+//retrieve all items from the cart 
+apirouter.get("/cart/", function(req, res) {
+  Cart.find({}, function(err, cart_list) {
+    res.json(cart_list);
+  });
+});
+
+//delete entire cart
+apirouter.delete("/cart/clear", function(req, res) {
+ Cart.find({},function(err,cart) {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(204).send("removed");
+      }
+    });
+  });
 
 module.exports = apirouter;
