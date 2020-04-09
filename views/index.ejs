@@ -1,4 +1,6 @@
 <link href="style.css" rel="stylesheet" type="text/css">
+
+<body>
 <div class="img-section">
   <img
       id="chicken-logo"
@@ -19,7 +21,8 @@
     <% if (locals.cart) { %> 
       <% food.forEach(result=>{ %>
       <ul> 
-        <li><%= result.item%> <%= result.price%></li>
+        <li><%= result.item%></li>
+        <span class="price">$<%= result.price%></span>
         <span class="ingredients"> <%=result.ingredients%></span>
         <div class="button-group">
 <!--    increase quant of item to order    -->
@@ -53,6 +56,7 @@
           <%= result.item%>
        <% })%> 
     <% }%> 
+</body>
 
  
 <script type=text/javascript>
