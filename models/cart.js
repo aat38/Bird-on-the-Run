@@ -6,7 +6,8 @@ const CartSchema = new Schema(
   {
     item : String,
     price : Number, 
-    ingredients: [String]
+    ingredients: [String],
+    incart: Boolean
   }
 );
 
