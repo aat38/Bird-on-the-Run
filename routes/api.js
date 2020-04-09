@@ -84,16 +84,13 @@ apirouter.get("/cart/items", function(req, res) {
 
 //delete entire cart
 apirouter.delete("/cart/clear", function(req, res) {
-  
-  var query = Cart.find({}).remove({});
-    query.exec(function (err, food_names) {
-  
-  // Cart.deleteMany({__v:0}, function(err, data) {
+  Cart.remove({}, function(err, data) {
       if (err) {
         res.status(500).send(err);
       } else {
         res.status(204).send("removed");
       }
-    })
-});
+    });
+    });
+  
 module.exports = apirouter;

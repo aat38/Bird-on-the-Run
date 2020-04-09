@@ -2,6 +2,7 @@
 // Route handlers
 const express = require("express");
 const router = express.Router();
+const server
 
 //import data models
 const Food = require("../models/food");
@@ -21,9 +22,10 @@ router.get("/", function(req, res) {
 });
 
 router.get("/checkout", function(req, res) {
-   Cart.find({}, function(err, cart_list) {
-     if (err) return (err);
-        res.render("cart", { cart: cart_list });
-    });   
+   // Cart.find({}, function(err, cart_list) {
+   //   if (err) return (err);
+   //      res.render("cart", { cart: cart_list });
+   //  });   
+  mongoDB.carts.remove({});
  });
 module.exports = router;
