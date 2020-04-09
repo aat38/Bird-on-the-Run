@@ -7,7 +7,7 @@ header h1, li{
   font-family: bubbleFont;
 }
 
-.button-group button{
+.button-group button, .checkout-button{
   color: white;
   border: none;
   background-color: fcab83
@@ -22,4 +22,8 @@ ul li {
   background-size: 2rem;
   padding-left: 2rem;
   padding-bottom: 1rem;
+}
+
+body, .price{
+  font-family: sans-serif
 }
