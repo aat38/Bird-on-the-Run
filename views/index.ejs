@@ -26,12 +26,13 @@
 
 
 <script type=text/javascript>
-  function add(id) {
-    fetch('https://aat38-assignment3parta.glitch.me/edit/'+id , {
+  function add(result) {
+    fetch('https://aat38-assignment3partb.glitch.me/api/cart/' , {
         headers:{"content-type":"application/json"},
         body: JSON.stringify({
-          word: word,
-          def: def
+          item: result.item,
+          price: result.price,
+          ingredients: result.ingredients
         }),
         method: 'POST'
     }).then(resp=>{
@@ -41,8 +42,8 @@
     })
   }
   
-  function del(id) {
-    fetch('https://aat38-assignment3parta.glitch.me/edit/'+id , {
+  function del(result) {
+    fetch('https://aat38-assignment3partb.glitch.me/api/cart/'+result.item , {
         method: 'DELETE'
     }).then(resp=>{
       console.log("resp");
