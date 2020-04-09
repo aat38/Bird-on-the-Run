@@ -1,0 +1,9 @@
+<% if (locals.cart) { %> 
+                      <% var quantity=0%>
+                      <% for (var i=0; i<Object.keys(cart).length;i++){             %>
+                      <%  if (Object.values(cart)[i].item === result.item){         %>
+                      <%      quantity=quantity+1                                   %>
+                      <%  }                                                         %>
+                      <% }                                                          %>
+
+<%}%>

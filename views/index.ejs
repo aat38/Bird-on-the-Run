@@ -1,5 +1,5 @@
 <head>
-  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="index.css" rel="stylesheet" type="text/css">
   <%- include ('../partials/bootstrap.js') %>
 </head>
 
@@ -9,7 +9,7 @@
       <div class="col-4">
       </div>
         <div class="col-8">
-        <h1>
+        <h1 class="title">
         Bird on the Run 
         </h1>
         </div>
@@ -100,16 +100,13 @@
     </div>  
   </section>
 
-  <section>
+  <section class="checkout">
     <div class="row">
         <div class="col-10">
         </div>
-        <div class="col-1">
-          <form id='form'>        
+        <form id='form'>        
           <button class="checkout-button"formaction="/checkout" method"GET" type="submit">Checkout</button>
-          </form>
-        </div>
-
+        </form>
     </div> 
   </section>  
 
