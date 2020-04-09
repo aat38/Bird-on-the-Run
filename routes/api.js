@@ -8,6 +8,7 @@ const Food = require("../models/food");
 const Cart = require("../models/cart");
 
 
+
 //----------routes to modify inventory------------------------
 // RETREIVE all Food items and return as food_list
 apirouter.get("/", function(req, res) {
@@ -84,13 +85,17 @@ apirouter.get("/cart/items", function(req, res) {
 
 //delete entire cart
 apirouter.delete("/cart/clear", function(req, res) {
-  Cart.remove({}, function(err, data) {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(204).send("removed");
-      }
-    });
-    });
+ Cart.findAllAndRemove({},
+ (err, book) => {
+  if(err) {
+   res.send('error removing')
+  } else {
+   console.log(book);
+   res.status(204);
+ }
+
+});
+});
+
   
 module.exports = apirouter;
