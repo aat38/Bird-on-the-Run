@@ -1,6 +1,5 @@
-<p>
-  hey
-</p>
+<link href="style.css" rel="stylesheet" type="text/css">
+
 
 <p>
   Here's what your store is currently offering: 
@@ -8,38 +7,34 @@
 
   <% if (locals.food) { %> 
     <% if (locals.cart) { %> 
-
-      <ul> 
       <% food.forEach(result=>{ %>
+      <ul> 
         <li><%= result.item%> <%= result.price%></li>
         <span> <%=result.ingredients%></span>
-        
+        <div>
 <!--    increase quant of item to order    -->
         <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
           
 <!--    decrease quant of item to order    -->
         <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
-
-        <%
-        // console.log(Object.values(cart)[0].item)
-        // console.log(Object.keys(cart).length)
-
-        var count =0
-        for (var i; i<=Object.keys(cart).length;i++){
-          if (Object.values(cart)[i].item === result.item){
-              count=count+1
-              }
-        }        
-        %>
-        <p>
-          <%= count%>
-        </p>
         
+<!--    show quantity of item that has been added to your cart    -->
+        <% var quantity=0%>
+        <% for (var i=0; i<Object.keys(cart).length;i++){             %>
+        <%  if (Object.values(cart)[i].item === result.item){         %>
+        <%      quantity=quantity+1                                   %>
+        <%  }                                                         %>
+        <% }                                                          %>
         
+        <%= quantity%>
+        </div>
+
       </ul>
       <% });%>
   <% }%> 
   <% }%> 
+
+
 <p>
   Cart
 </p>
