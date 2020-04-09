@@ -30,17 +30,14 @@ const indexRouter = require("./routes/index");
 
 app.use("/", indexRouter);
 app.use("/api/", apiRouter);
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 //----------------------------ROUTER-------------------------------------
 
-//  const corsProxy= cors_proxy.createServer({
-//     originWhitelist: [], // Allow all origins
-//     requireHeader: ['origin', 'x-requested-with'],
-//     removeHeaders: ['cookie', 'cookie2']
-// }).listen(process.env.PORT, () => {
-//   console.log("Your app is listening on port " + corsProxy.address().port);
-// });
 
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);

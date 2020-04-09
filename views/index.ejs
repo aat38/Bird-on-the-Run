@@ -29,7 +29,8 @@
     result = JSON.parse(result);
     fetch('https://aat38-assignment3partb.glitch.me/api/cart/', {
         headers:{
-          "content-type":"application/json"
+          "content-type":"application/json",
+          'Access-Control-Allow-Origin':'*',
         },
         body: JSON.stringify({
           item: result.item,
