@@ -5,10 +5,13 @@ const router = express.Router();
 
 //import data models
 const Food = require("../models/food");
+const Cart = require("../models/cart");
 
 // RETREIVE all items
 router.get("/", function(req, res) {
   Food.find({}, function(err, food_list) {
+      Cart.find({}, function(err, food_list) {
+
     // console.log(food_list)
     // res.render("index", { food: food_list });
     
@@ -16,7 +19,10 @@ router.get("/", function(req, res) {
 
 //     query.exec(function (err, food_names) {
         if (err) return (err);
-        res.render("index", { food: food_list });
+        res.render("index", { food: food_list },
+                   ""
+                  );
     });   
 });
+  });
 module.exports = router;

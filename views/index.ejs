@@ -26,11 +26,11 @@
 
 <script type=text/javascript>
   function add(result) {
+    console.log(result+" added to cart")
     result = JSON.parse(result);
-    fetch('https://aat38-assignment3partb.glitch.me/api/cart/', {
+    fetch('https://aat38-assignment3b.glitch.me/api/cart/', {
         headers:{
           "content-type":"application/json",
-          'Access-Control-Allow-Origin':'*',
         },
         body: JSON.stringify({
           item: result.item,
@@ -46,12 +46,12 @@
   }
   
   function del(result) {
+    console.log(result+" deleted from cart")
     result = JSON.parse(result);
-    fetch('https://aat38-assignment3partb.glitch.me/api/cart/'+result.item , {
+    fetch('https://aat38-assignment3b.glitch.me/api/cart/'+result.item , {
         method: 'DELETE'
     }).then(resp=>{
       console.log("resp");
-      console.log(resp);
     }, err=>{
       console.log(err);
     })
