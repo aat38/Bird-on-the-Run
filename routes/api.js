@@ -59,6 +59,7 @@ apirouter.delete("/:id", function(req, res) {
 apirouter.post("/cart/", function(req, res) {
   let cart = new Cart(req.body);
   cart.save();
+  console.log(req.body.item + " saved to cart")
   res.status(201).send(cart);
 });
 

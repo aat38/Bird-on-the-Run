@@ -13,20 +13,21 @@
         <span> <%=result.ingredients%></span>
         
 <!--    increase quant of item to order    -->
-        <form id="add" onSubmit="add(<%=result%>);">        
+        <form id="add" onSubmit="add('<%=result%>');">        
         <button value='<%=result.id%>'<type="submit"> + </button>
           
 <!--    decrease quant of item to order    -->
-        <form id="del" onSubmit="del(<%=result%>);">        
-        <button value='<%=result.id%>'<type="submit"> - </button>
+        <form id="del" onSubmit="del('<%=result%>');">        
+        <button value='<%=result.id%>'type="submit"> - </button>
           
       </ul>
-      <% }); %>
+      <% });%>
   <% }%> 
 
 
 <script type=text/javascript>
   function add(result) {
+    console.log(result.item + "tbadded")
     fetch('https://aat38-assignment3partb.glitch.me/api/cart/' , {
         headers:{"content-type":"application/json"},
         body: JSON.stringify({
@@ -43,6 +44,7 @@
   }
   
   function del(result) {
+        console.log(result.item + "tb deleted")
     fetch('https://aat38-assignment3partb.glitch.me/api/cart/'+result.item , {
         method: 'DELETE'
     }).then(resp=>{
