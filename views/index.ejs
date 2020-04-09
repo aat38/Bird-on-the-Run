@@ -35,85 +35,87 @@
   
   </header>
 
-<section class="menu">
-  <div class="row">
-      <div class="col-1">
-      </div>
-      <div class="col-8">
-        <h2>
-          Menu
-        </h2>
-      </div>
-  </div> 
+  <section class="menu">
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-8">
+          <h2>
+            Menu
+          </h2>
+        </div>
+    </div> 
 
-  
-  <div class="row">
-      <div class="col-1">
-      </div>
-      <div class="col-11">
-        <% if (locals.food) { %> 
-          <% if (locals.cart) { %> 
-            <% food.forEach(result=>{ %>
-            <ul> 
-            <div class="row">
-              <div class="col-8">
-                <li><%= result.item%></li>
-              </div>
-            
-              <div class="button-group">
-          <!--    increase quant of item to order    -->
-                  <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
 
-          <!--    decrease quant of item to order    -->
-                  <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-11">
+          <% if (locals.food) { %> 
+            <% if (locals.cart) { %> 
+              <% food.forEach(result=>{ %>
 
-          <!--    show quantity of item that has been added to your cart    -->
-                  <% var quantity=0%>
-                  <% for (var i=0; i<Object.keys(cart).length;i++){             %>
-                  <%  if (Object.values(cart)[i].item === result.item){         %>
-                  <%      quantity=quantity+1                                   %>
-                  <%  }                                                         %>
-                  <% }                                                          %>
+  <!-- ###  menu item ############################################ -->
+              <ul> 
 
-                  <span class="quantity"><%= quantity%></span>
+                <div class="row">
+                  <div class="col-10">
+                    <li><%= result.item%></li>
+                  </div>
+
+                  <div class="button-group">
+                      <!--    increase quant of item to order    -->
+                      <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
+
+                      <!--    decrease quant of item to order    -->
+                      <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
+
+                       <!--    show quantity of item that has been added to your cart    -->
+                      <% var quantity=0%>
+                      <% for (var i=0; i<Object.keys(cart).length;i++){             %>
+                      <%  if (Object.values(cart)[i].item === result.item){         %>
+                      <%      quantity=quantity+1                                   %>
+                      <%  }                                                         %>
+                      <% }                                                          %>
+                      <span class="quantity"><%= quantity%></span>
+                  </div>  
                 </div>
-              
-            </div>
-            <div class="row">
-              <div class="col-1">
-              </div>
-              <div class="col-1">
-                <span class="price">$<%= result.price%></span>
-              </div>
-               <div class="col-9">
-                <span class="ingredients"> <%=result.ingredients%></span>
-              </div>             
 
-              
-            </div>
-                
-            </ul>
-            <% });%>
-          <% }%> 
-        <% }%>     
-<!--  column div -->
-      </div> 
-<!--row div-->
-  </div> 
+                <div class="row">
+                  <div class="col-1">
+                  </div>
+                  <div class="col-1">
+                    <span class="price">$<%= result.price%></span>
+                  </div>
+                   <div class="col-9">
+                    <span class="ingredients"> <%=result.ingredients%></span>
+                  </div>                         
+                </div>
 
-  
-</section>
+              </ul>
+  <!-- ###  end menu item ############################################ -->
 
+              <% });%>
+            <% }%> 
+          <% }%>   
 
+        </div> 
+    </div>  
+  </section>
 
-<p>
-  Cart
-</p>
-    <% if (locals.cart) { %> 
-       <% cart.forEach(result=>{ %>
-          <%= result.item%>
-       <% })%> 
-    <% }%> 
+  <section>
+    <div class="row">
+        <div class="col-10">
+        </div>
+        <div class="col-1">
+          <button onclick="" class="checkout-button">
+            Checkout
+          </button>
+        </div>
+
+    </div> 
+  </section>  
+
 </body>
 
  
