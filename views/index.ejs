@@ -7,9 +7,10 @@
 </p>
 
   <% if (locals.food) { %> 
+      <ul> 
         <% food.forEach(result=>{ %>
-      <ol> 
-          <%= result%>
-      </ol>
+        <li><%= result.item%> <%= result.price%></li>
+        <span> <%=result.ingredients%></span>
     <% }); %>
+      </ul>
   <% }%> 

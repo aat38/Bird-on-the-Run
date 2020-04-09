@@ -12,16 +12,11 @@ router.get("/", function(req, res) {
     // console.log(food_list)
     // res.render("index", { food: food_list });
     
-    var query = Food.find({}).select('item -_id');
+//     var query = Food.find({}).select('item -_id');
 
-    query.exec(function (err, food_names) {
+//     query.exec(function (err, food_names) {
         if (err) return (err);
-        res.render("index", { food: food_names });
-        // res.send(food_names);
-    });  
-    
-  });
-
+        res.render("index", { food: food_list });
+    });   
 });
-
 module.exports = router;
