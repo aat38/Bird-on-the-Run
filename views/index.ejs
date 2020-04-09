@@ -7,9 +7,11 @@
 </p>
 
   <% if (locals.food) { %> 
+    <% if (locals.cart) { %> 
 
       <ul> 
       <% food.forEach(result=>{ %>
+       <% cart.forEach(shopping=>{ %>
         <li><%= result.item%> <%= result.price%></li>
         <span> <%=result.ingredients%></span>
         
@@ -19,20 +21,18 @@
 <!--    decrease quant of item to order    -->
         <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
 
-        <% if (locals.cart) { %> 
        
-        <% }%> 
       </ul>
       <% });%>
+      <% });%>
+  <% }%> 
   <% }%> 
 <p>
   Cart
 </p>
-        <% if (locals.cart) { %> 
-       <% cart.forEach(result=>{ %>
-<%= result.item%>
-        <% })%> 
-    <% }%> 
+        
+
+
 <script type=text/javascript>
   function add(result) {
     console.log(result+" added to cart")
@@ -48,7 +48,7 @@
         }),
         method: 'POST'
     }).then(resp=>{
-      console.log(resp);
+       window.location.reload();//so changes populate
     }, err=>{
       console.log(err);
     })
@@ -60,7 +60,7 @@
     fetch('https://aat38-assignment3b.glitch.me/api/cart/'+result.item , {
         method: 'DELETE'
     }).then(resp=>{
-      console.log("resp");
+     window.location.reload();
     }, err=>{
       console.log(err);
     })
