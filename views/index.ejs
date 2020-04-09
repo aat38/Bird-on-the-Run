@@ -8,9 +8,41 @@
 
   <% if (locals.food) { %> 
       <ul> 
-        <% food.forEach(result=>{ %>
+      <% food.forEach(result=>{ %>
         <li><%= result.item%> <%= result.price%></li>
         <span> <%=result.ingredients%></span>
-    <% }); %>
+        <!--    increase quant of item to order    -->
+        <form id="add" onSubmit="add();">        
+        <button type="submit"  formaction = '/create'>
+        +
+        </button>
+          
+<!--    decrease quant of item to order    -->
+        <form id="del" onSubmit="add();">        
+        <button type="submit" formaction = '/create'>
+        -
+        </button>
       </ul>
+      <% }); %>
   <% }%> 
+
+<form id="deleteForm" onSubmit="del();">
+</form>
+
+
+
+<script type=text/javascript>
+  function del() {
+    var word = document.getElementById('delWord').value;
+    console.log(word);
+    //document.getElementById('deleteForm').action = 
+    fetch('https://aat38-assignment3parta.glitch.me/edit/'+word , {
+        method: 'DELETE'
+    }).then(resp=>{
+      console.log("resp");
+      console.log(resp);
+    }, err=>{
+      console.log(err);
+    })
+  }
+</script> 
