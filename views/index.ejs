@@ -29,17 +29,21 @@
                       <li><%= result.item%>  <span class="price">$<%= result.price%></span></li>
                     </div>
                     <div class="button-group">
-                        <!--    increase quant of item to order    -->
-                        <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
-                        <!--    decrease quant of item to order    -->
-                        <button onclick="if ('<%= quantity%>' >0) {"del('<%= JSON.stringify(result) %>')"}" > - </button>
-                         <!--    show quantity of item that has been added to your cart    -->
                         <% var quantity=0%>
                         <% for (var i=0; i<Object.keys(cart).length;i++){             %>
                         <%  if (Object.values(cart)[i].item === result.item){         %>
                         <%      quantity=quantity+1                                   %>
                         <%  }                                                         %>
                         <% }                                                          %>
+                        <!--    increase quant of item to order    -->
+                        <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
+                        <!--    decrease quant of item to order    -->
+                        <% if (quantity > 0) {%>
+                          <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
+                        <% } else { %>
+                          <button> - </button>
+                        <% } %>                      
+                        <!--    show quantity of item that has been added to your cart    -->
                         <span class="quantity"><%= quantity%></span>
                     </div>  
                   </div>
@@ -71,6 +75,9 @@
       </div>
     </div> 
     <div class="d-flex justify-content-center">
+    
+      <% if (locals.cart) { %> 
+      
         <form id='checkout'>        
           <button class="checkout-button" formaction="/checkout" method"GET" type="submit">Checkout</button>
         </form>
