@@ -23,6 +23,7 @@ button{
   border-color: fcab83;
   background-color: white;
   padding: 1.01rem;
+  border-radius: 5px !important;
 }
 
 .confirm {

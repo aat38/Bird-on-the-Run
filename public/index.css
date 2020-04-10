@@ -10,10 +10,15 @@ header h1, li{
   margin-left:50px;
 }
 
+button{
+  border-radius: 5px !important;
+}
+
 .button-group button{
   color: white;
   border: none;
   background-color: fcab83
+  padding:0.5rem;
 }
 
 ul {
@@ -38,8 +43,22 @@ ul li {
   border-color: white;
   background-color: fcab83;
   padding: .3rem;
+  margin-left:50px;
+  border-radius: 5px;
 
+}
+.refresh{
+  padding-left:40px;
+  padding-right:40px;
+}
 
+.clear{
+  padding-left:48px;
+  padding-right:48px;
+}
+
+#clearForm{
+  margin:0;
 }
 
 .checkout-button{
