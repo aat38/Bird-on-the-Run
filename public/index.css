@@ -9,6 +9,9 @@ header h1, li{
 .title{
   margin-left:50px;
 }
+.menuTitle{
+  padding:2rem;
+}
 
 button{
   border-radius: 5px !important;
@@ -17,8 +20,9 @@ button{
 .button-group button{
   color: white;
   border: none;
-  background-color: fcab83
-  padding:0.5rem;
+  background-color: fcab83;
+  padding-left:0.5rem;
+  padding-right:0.5rem;
 }
 
 ul {
@@ -30,10 +34,15 @@ ul li {
   background-size: 2rem;
   padding-left: 2rem;
   padding-bottom: 1rem;
+  font-size: 1.5rem
 }
 
 .menu h2, .ingredients, .price, .checkout-button, .button-group{
   font-family: sans-serif
+}
+
+div .col-10{
+  padding-left:0;
 }
 
 .refresh, .clear{
@@ -67,5 +76,5 @@ ul li {
   border-color: fcab83;
   background-color: white;
   padding: 2.01rem;
-  margin:0;
+  margin-top:40px;
 }
