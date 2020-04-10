@@ -8,6 +8,7 @@ header h1, li{
 }
 .title{
   margin-left:45px;
+  margin-top:30px;
 }
 .menuTitle{
   padding:2rem;
@@ -52,7 +53,7 @@ div .col-10{
   border-color: white;
   background-color: fcab83;
   padding: .3rem;
-  margin-left:50px;
+  margin-left:90px;
   border-radius: 5px;
 
 }
@@ -77,4 +78,9 @@ div .col-10{
   background-color: white;
   padding: 2.01rem;
   margin-top:40px;
+  margin-left:200px;
+  padding-left:60px;
+  padding-right:60px;
+  font-size:20px;
+
 }
