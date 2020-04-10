@@ -32,11 +32,13 @@ ul li {
 }
 
 .refresh, .clear{
+  text-align: center;
   color: white;
   border: solid;
   border-color: white;
   background-color: fcab83;
-  
+  padding: .3rem;
+
 
 }
 
