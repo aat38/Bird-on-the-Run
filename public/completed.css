@@ -18,13 +18,13 @@ header {
   margin-top: 100px;
 }
 
-a:link {
-  color: ff9e6e;
+a.ref:link, a.ref:visited {
+  color: #ffc694;
   text-decoration: none;
 }
 
-a:visited {
-  color: fa8246;
+a.ref:hover {
+  color: #fa8246;
   text-decoration: none;
 }
 
