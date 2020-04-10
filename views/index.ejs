@@ -101,11 +101,10 @@
   </section>
 
   <section class="checkout">
-    <div class="row">
-        <div class="col-10">
-        </div>
-      
-        <button onclick="clear()" > + </button>
+    <div class="row">   
+        <form id='clear'>      
+          <button class="clear-button" onclick="clear();">Clear Quuant</button>
+        </form>
       
         <form id='checkout'>        
           <button class="checkout-button"formaction="/checkout" method"GET" type="submit">Checkout</button>
@@ -118,7 +117,6 @@
  
 <script type=text/javascript>
   function add(result) {
-    console.log(result+" added to cart")
     result = JSON.parse(result);
     fetch('https://aat38-assignment3b.glitch.me/api/cart/', {
         headers:{
@@ -139,7 +137,6 @@
   }
    
   function del(result) {
-    console.log(result+" deleted from cart")
     result = JSON.parse(result);
     fetch('https://aat38-assignment3b.glitch.me/api/cart/'+result.item , {
         method: 'DELETE'
@@ -151,12 +148,13 @@
   }
   
   function clear() {
-    console.log('attemnpting to fetch')
-    fetch('https://aat38-assignment3b.glitch.me/delete' , {
+    fetch('https://aat38-assignment3b.glitch.me/delete', {
         method: 'DELETE'
     }).then(resp=>{
+    console.log('attemnpting to fetch')
      window.location.reload();
     }, err=>{
+          console.log('attemnpting to errrr')
       console.log(err);
     })
   }
