@@ -10,7 +10,6 @@ const Cart = require("../models/cart");
 
 // -----------All of these routes begin with /------------
 
-
 // retrieve all menu items
 router.get("/", function(req, res) {
   Food.find({}, function(err, food_list) {
@@ -43,7 +42,7 @@ router.get("/completeOrder", function(req, res) {
 router.get("/delete", function(req, res) {
 mongoose.connection.collections['carts'].drop() 
     console.log('collection dropped');
-    //getting stuck on return fuction -like the call is jst out in space and necver coming back- so deleted the callback function
+    //getting stuck on return fuction - the call is just out in space and necver coming back- so deleted the callback function
 });
 
   

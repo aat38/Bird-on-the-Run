@@ -5,7 +5,7 @@
 
 <body>
   <%- include ('../partials/header.ejs') %>
-  <!-- EJS to extract cart items and prices  ------>
+  <!-- EJS to extract cart items and prices (IF cart exists) ------>
   <% if (locals.cart) { %> 
     <% var checkout=[] %>
     <% var total= 0 %>
@@ -51,7 +51,7 @@
     </div>
   <%}%>
   <%}%> 
-  <!-------------end EJS if statment----------------->
+  <!-------------end of EJS if statment----------------->
   <!-- row total-->
    <div class="row">
       <div class="col-4"></div>

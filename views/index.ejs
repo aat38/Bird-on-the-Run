@@ -37,7 +37,7 @@
                         <% }                                                          %>
                         <!--    increase quantity of item in order    -->
                         <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
-                        <!--    decrease quantity of item in order    -->
+                        <!--    decrease quantity of item in order (IF quantity > 0)   -->
                         <% if (quantity > 0) {%>
                           <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
                         <% } else { %>
@@ -68,7 +68,8 @@
       <div class="col-9">
       </div>
       <div class="col-3">
-        <!--    show quantity of item that has been added to your cart    -->
+        <!--    could not find a way to allow a button with a formaction to also trigger a function   -->
+        <!--    workaround was to have two buttons, one that handles the formaction, one that handles the refresh function   -->
         <form id='clearForm'>        
           <button type="submit" class="clear" formaction="/delete">Clear </button>
         </form>
@@ -78,6 +79,7 @@
      <div class="row">               
        <div class="col-9">
       </div>   
+      <!--   if nothing is in the cart, don't allow checkout   -->
       <% if (locals.cart.length>0) { %> 
           <form id='checkout'>        
             <button class="checkout-button" formaction="/checkout" method"GET" type="submit">Checkout</button>
