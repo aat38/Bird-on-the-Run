@@ -3,35 +3,22 @@
   src: url(https://cdn.glitch.com/451312bc-7fb7-45c4-95a9-ce8d187f2475%2FBUBBLEGUMS.TTF?v=1579198337837);
 }
 
-header h1, li{
+header {
   font-family: bubbleFont;
 }
 
-.button-group button{
-  color: white;
-  border: none;
-  background-color: fcab83
+.item {
+  padding:2rem
 }
 
-ul {
-  list-style-type: none;
-}
-ul li {
-  background: url("https://cdn.glitch.com/8cae72da-8ec9-4d88-83b4-ae815e59f15e%2Fsimple-black-and-white-chicken-leg-removebg-preview.png?v=1586445171689");
-  background-repeat: no-repeat;
-  background-size: 2rem;
-  padding-left: 2rem;
-  padding-bottom: 1rem;
-}
-
-.menu h2, .ingredients, .price, .checkout-button, .button-group{
-  font-family: sans-serif
-}
-
-.{
+button{
   color: fcab83;
   border: solid;
   border-color: fcab83;
   background-color: white;
   padding: 1.01rem;
+}
+
+.confirm {
+  margin-top: 200
 }

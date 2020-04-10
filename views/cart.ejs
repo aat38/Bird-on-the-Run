@@ -3,25 +3,8 @@
   <%- include ('../partials/bootstrap.js') %>
 </head>
 <body>
-  <header>
-    <div class="row">
-      <div class="col-2">
-      </div>
-        <div class="col-8">
-        <h2 class="title">
-        Bird on the Run 
-        </h2>
-        </div>
-     <div class="col-2">
-        <img
-            id="chicken-logo"
-            alt="Chicken Logo"
-            src="https://cdn.glitch.com/8cae72da-8ec9-4d88-83b4-ae815e59f15e%2Fmaclife150400060-removebg-preview.png?v=1586444409101"
-            height="200" width="200"
-        />  
-        </div>
-    </div>  
-  </header>
+  <%- include ('../partials/header.ejs') %>
+
 <!-- EJS to extract cart items and prices  -->
 <% if (locals.cart) { %> 
   <% var checkout=[] %>
@@ -43,12 +26,14 @@
   
  <section class="viewOrder">
     <div class="row">
-      <div class="col-8">
+      <div class="col-4">
+      </div>
+      <div class="col-3">
           <h3>
             Order
         </h3>
       </div>
-      <div class="col-4">
+      <div class="col-5">
           <h3>
             Quantity
         </h3>
@@ -56,11 +41,13 @@
    </div>
    
   <%for (var j = 0; j<Object.keys(list).length; j++){%>
-    <div class="row">
-      <div class="col-8" class="itemName">
+    <div class="row item">
+      <div class="col-4">
+      </div>
+      <div class="col-3" class="itemName">
         <%=Object.keys(list)[j]%>
       </div>
-      <div class="col-4" class="quantity">
+      <div class="col-5" class="quantity">
         <%=(Object.values(list)[j].length)%>
       </div>
     </div>
@@ -68,12 +55,14 @@
   <%}%> 
    
    <div class="row">
-      <div class="col-8">
+      <div class="col-4">
+      </div>
+      <div class="col-3">
           <h3>
             Total
         </h3>
       </div>
-      <div class="col-4">
+      <div class="col-5">
           <h3>
             $<%=total%>
         </h3>
@@ -86,7 +75,7 @@
   <div class="col-6">
     </div>
   <div class="col-6">
-      <button>
+      <button class="confirm">
     Confirm Purchase
   </button>
   </div>    
