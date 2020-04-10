@@ -42,22 +42,57 @@
 <!-------------------------------------------->
   
  <section class="viewOrder">
-  <%for (var j = 0; j<Object.keys(list).length; j++){%>
-   
     <div class="row">
       <div class="col-8">
-          <span class="itemName"><%=Object.keys(list)[j]%></span> 
+          <h3>
+            Order
+        </h3>
       </div>
       <div class="col-4">
-          <span class="quantity"><%=(Object.values(list)[j].length)%></span>
+          <h3>
+            Quantity
+        </h3>
       </div>
    </div>
-<%}%>
-<%}%> 
    
-  </section> 
+  <%for (var j = 0; j<Object.keys(list).length; j++){%>
+    <div class="row">
+      <div class="col-8" class="itemName">
+        <%=Object.keys(list)[j]%>
+      </div>
+      <div class="col-4" class="quantity">
+        <%=(Object.values(list)[j].length)%>
+      </div>
+    </div>
+  <%}%>
+  <%}%> 
+   
+   <div class="row">
+      <div class="col-8">
+          <h3>
+            Total
+        </h3>
+      </div>
+      <div class="col-4">
+          <h3>
+            $<%=total%>
+        </h3>
+      </div>
+   </div>   
+</section> 
+
+<section class="checkout">
+  <div class="row">
+  <div class="col-6">
+    </div>
+  <div class="col-6">
+      <button>
+    Confirm Purchase
+  </button>
+  </div>    
+  </div>
 
 
-<%=total%>
+</section>
 
 </body>
