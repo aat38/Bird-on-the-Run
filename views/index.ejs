@@ -102,8 +102,9 @@
 
   <section class="checkout">
     <div class="row">  
-      
-          <button onclick="clear()" >Clear Quantities</button>
+        <form>        
+          <button id="clear-button" formaction="/delete" type="submit">Clear Quantities</button>
+        </form>        
 
         <form id='checkout'>        
           <button class="checkout-button" formaction="/checkout" method"GET" type="submit">Checkout</button>
@@ -113,8 +114,10 @@
 
 </body>
 
- 
+
 <script type=text/javascript>
+  document.getElementById("clear-button").addEventListener("click", function(){ window.location.href=window.location.href } );
+  
   function add(result) {
     result = JSON.parse(result);
     fetch('https://aat38-assignment3b.glitch.me/api/cart/', {
