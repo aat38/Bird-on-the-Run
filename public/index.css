@@ -31,10 +31,20 @@ ul li {
   font-family: sans-serif
 }
 
-button .checkout{
+.refresh, .clear{
+  color: white;
+  border: solid;
+  border-color: white;
+  background-color: fcab83;
+  
+
+}
+
+.checkout-button{
   color: fcab83;
   border: solid;
   border-color: fcab83;
   background-color: white;
-  padding: 1.01rem;
+  padding: 2.01rem;
+  margin:0;
 }

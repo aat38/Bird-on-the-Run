@@ -71,26 +71,17 @@
   </section>
 
   <section class="checkout">
-    <div class="row">  
-      <div class="col-9">
-      </div>
-      <div class="col-1">
+    <div class="d-flex flex-row-reverse">  
         <form id='clearForm'>        
-          <button type="submit" class="clear" formaction="/delete">Clear Quantities</button>
+          <button type="submit" class="clear" formaction="/delete">Clear</button>
         </form>
-      </div>
-      <div class="col-1">
           <button class="refresh" type="button" onClick="window.location.reload();" >Refresh</button>
-      </div>
     </div> 
-    <div class="row"> 
-      <div class="col-9">
-      </div>
-      <div class="col-3">
+    <div class="d-flex flex-row-reverse align-items-stretch"> 
         <form id='checkout'>        
-          <button class="checkout" formaction="/checkout" method"GET" type="submit">Checkout</button>
+          <button class="checkout-button" formaction="/checkout" method"GET" type="submit">Checkout</button>
         </form>
-      </div>
+
     </div>
   </section>  
 
