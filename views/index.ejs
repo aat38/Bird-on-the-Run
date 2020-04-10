@@ -32,7 +32,7 @@
                         <!--    increase quant of item to order    -->
                         <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
                         <!--    decrease quant of item to order    -->
-                        <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
+                        <button onclick="if ('<%= quantity%>' >0) {"del('<%= JSON.stringify(result) %>')"}" > - </button>
                          <!--    show quantity of item that has been added to your cart    -->
                         <% var quantity=0%>
                         <% for (var i=0; i<Object.keys(cart).length;i++){             %>
