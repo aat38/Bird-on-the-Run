@@ -1,4 +1,3 @@
-// -----------All of these routes begin with /api/------------
 // Route handlers
 const express = require("express");
 const apirouter = express.Router();
@@ -8,8 +7,9 @@ const Food = require("../models/food");
 const Cart = require("../models/cart");
 
 
+// -----------All of these routes begin with /api/------------
+//--------------routes to modify inventory(FOOD) :------------
 
-//----------routes to modify inventory------------------------
 // RETREIVE all Food items and return as food_list
 apirouter.get("/", function(req, res) {
   Food.find({}, function(err, food_list) {
@@ -42,7 +42,7 @@ apirouter.put("/:id", function(req, res) {
   });
 });
 
-//DELETE
+//DELETE an item based on ID
 apirouter.delete("/:id", function(req, res) {
   Food.find(req.params.id, function(err, food) {
     food.remove(function(err) {
@@ -55,7 +55,8 @@ apirouter.delete("/:id", function(req, res) {
   });
 });
 
-//-------------routes to modify cart--------------------------
+//-------------routes to modify CART--------------------------
+
 //add an item to the cart
 apirouter.post("/cart/", function(req, res) {
   let cart = new Cart(req.body);
@@ -83,23 +84,5 @@ apirouter.get("/cart/items", function(req, res) {
   });
 });
 
-//delete entire cart
-apirouter.delete("/cart/:delete", function(req, res) {
-  
-  
-  
-//   router.get('/obj/:id',  function(req, res) {
-// var id = req.params.id;
-
-Cart.find({incart: req.params.delete}, function (err, result) {
-    result.remove(function(err) {
-      if (err) {
-
-      } else {
-        res.status(204).send("removed");
-      }
-    });
-  });
-  });
 
 module.exports = apirouter;

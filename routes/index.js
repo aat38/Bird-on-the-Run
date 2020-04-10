@@ -1,4 +1,3 @@
-// -----------All of these routes begin with /store/------------
 // Route handlers
 const express = require("express");
 const router = express.Router();
@@ -8,7 +7,11 @@ const mongoose = require("mongoose");
 const Food = require("../models/food");
 const Cart = require("../models/cart");
 
-// RETREIVE all menu items
+
+// -----------All of these routes begin with /------------
+
+
+// retrieve all menu items
 router.get("/", function(req, res) {
   Food.find({}, function(err, food_list) {
       Cart.find({}, function(err, cart_list) {
@@ -29,8 +32,10 @@ router.get("/checkout", function(req, res) {
     });   
  });
 
-//render completedOrder page
+//render completedOrder page and clear cart 
 router.get("/completeOrder", function(req, res) {
+  mongoose.connection.collections['carts'].drop() 
+  console.log('collection no longer needed after ordering-dropped');
         res.render("complete");
 });
 

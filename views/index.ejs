@@ -19,7 +19,7 @@
         <div class="col-1">
         </div>
         <div class="col-11">
-          <!-- ###  menu item ############################################ -->
+          <!-------------------  display menu item --------------------------->
           <% if (locals.food) { %> 
             <% if (locals.cart) { %> 
               <% food.forEach(result=>{ %>
@@ -35,9 +35,9 @@
                         <%      quantity=quantity+1                                   %>
                         <%  }                                                         %>
                         <% }                                                          %>
-                        <!--    increase quant of item to order    -->
+                        <!--    increase quantity of item in order    -->
                         <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
-                        <!--    decrease quant of item to order    -->
+                        <!--    decrease quantity of item in order    -->
                         <% if (quantity > 0) {%>
                           <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
                         <% } else { %>
@@ -58,7 +58,7 @@
               <% });%>
             <% }%> 
           <% }%>   
-          <!-- ###  end menu item ############################################ -->
+          <!-----------------------end display ------------------------------>
        </div> 
     </div>  
   </section>
@@ -68,6 +68,7 @@
       <div class="col-9">
       </div>
       <div class="col-3">
+        <!--    show quantity of item that has been added to your cart    -->
         <form id='clearForm'>        
           <button type="submit" class="clear" formaction="/delete">Clear </button>
         </form>
@@ -90,11 +91,9 @@
   </section>  
 </body>
 
-<!--------------------------------------------------------------------->
 
 <script type=text/javascript>
- 
-  function add(result) {
+   function add(result) {
     result = JSON.parse(result);
     fetch('https://aat38-assignment3b.glitch.me/api/cart/', {
         headers:{
@@ -134,5 +133,6 @@
   // //     console.log(err);
   // //   })
   // } can't call this function from clear/refresh button while they are being used to send http request
+  //   to work around this, created REFRESH button along with the CLEAR button, that empties a cart 
   
 </script> 
