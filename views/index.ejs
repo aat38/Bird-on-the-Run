@@ -103,11 +103,11 @@
   <section class="checkout">
     <div class="row">   
         <form id='clear'>      
-          <button class="clear-button" onclick="clear();">Clear Quuant</button>
+          <button class="clear-button" formaction="/delete" >Clear Quantities</button>
         </form>
       
         <form id='checkout'>        
-          <button class="checkout-button"formaction="/checkout" method"GET" type="submit">Checkout</button>
+          <button class="checkout-button" formaction="/checkout" method"GET" type="submit">Checkout</button>
         </form>
     </div> 
   </section>  
@@ -147,16 +147,15 @@
     })
   }
   
-  function clear() {
-    fetch('https://aat38-assignment3b.glitch.me/delete', {
-        method: 'DELETE'
-    }).then(resp=>{
-    console.log('attemnpting to fetch')
-     window.location.reload();
-    }, err=>{
-          console.log('attemnpting to errrr')
-      console.log(err);
-    })
-  }
+  // function clear() {
+  //   fetch('https://aat38-assignment3b.glitch.me/delete', {
+  //       method: 'DELETE'
+  //   }).then(resp=>{
+  //    window.location.reload();
+  //   }, err=>{
+  //         console.log('errrr')
+  //     console.log(err);
+  //   })
+  // }
   
 </script> 

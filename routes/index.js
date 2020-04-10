@@ -29,7 +29,7 @@ router.get("/checkout", function(req, res) {
  });
 
 //delete entire cart
-router.delete("/delete", function(req, res) {
+router.get("/delete", function(req, res) {
 mongoose.connection.collections['carts'].drop( function(err) {
     console.log('collection dropped');
 });
