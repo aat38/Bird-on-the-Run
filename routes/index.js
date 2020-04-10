@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const Food = require("../models/food");
 const Cart = require("../models/cart");
 
-// RETREIVE all items
+// RETREIVE all menu items
 router.get("/", function(req, res) {
   Food.find({}, function(err, food_list) {
       Cart.find({}, function(err, cart_list) {
@@ -21,12 +21,18 @@ router.get("/", function(req, res) {
    });
 });
 
+//render checkout page and cart items
 router.get("/checkout", function(req, res) {
    Cart.find({}, function(err, cart_list) {
      if (err) return (err);
         res.render("cart", { cart: cart_list });
     });   
  });
+
+//render completedOrder page
+router.get("/completeOrder", function(req, res) {
+        res.render("complete");
+});
 
 //delete entire cart
 router.get("/delete", function(req, res) {
