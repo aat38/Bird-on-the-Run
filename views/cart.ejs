@@ -2,29 +2,28 @@
   <link href="cart.css" rel="stylesheet" type="text/css">
   <%- include ('../partials/bootstrap.js') %>
 </head>
+
 <body>
   <%- include ('../partials/header.ejs') %>
-
-<!-- EJS to extract cart items and prices  -->
-<% if (locals.cart) { %> 
-  <% var checkout=[] %>
-  <% var total= 0 %>
-    <% cart.forEach(order=>{ %>                                           
-           <%checkout.push(order.item)%>
-           <%total = total + order.price %>
-  <%})%>
-
-  <%var list = {}%>
-  <%for (var i = 0; i<checkout.length; i++){%>
-    <% if (list.hasOwnProperty(checkout[i])){%>
-            <%list[checkout[i]] = list[checkout[i]]+1%>
-        <%}else{%>
-            <%list[checkout[i]]='1'%>
-    <%}%>
-  <% }%>
-<!-------------------------------------------->
+  <!-- EJS to extract cart items and prices  ------>
+  <% if (locals.cart) { %> 
+    <% var checkout=[] %>
+    <% var total= 0 %>
+      <% cart.forEach(order=>{ %>                                           
+        <%checkout.push(order.item)%>
+        <%total = total + order.price %>
+      <%})%>
+    <%var list = {}%>
+    <%for (var i = 0; i<checkout.length; i++){%>
+      <% if (list.hasOwnProperty(checkout[i])){%>
+        <%list[checkout[i]] = list[checkout[i]]+1%>
+      <%}else{%>
+        <%list[checkout[i]]='1'%>
+      <%}%>
+    <% }%>
   
  <section class="viewOrder">
+    <!-- row headers-->
     <div class="row">
       <div class="col-4">
       </div>
@@ -39,11 +38,10 @@
         </h3>
       </div>
    </div>
-   
+  <!-- rows of items-->
   <%for (var j = 0; j<Object.keys(list).length; j++){%>
     <div class="row item">
-      <div class="col-4">
-      </div>
+      <div class="col-4"></div>
       <div class="col-3" class="itemName">
         <%=Object.keys(list)[j]%>
       </div>
@@ -53,18 +51,18 @@
     </div>
   <%}%>
   <%}%> 
-   
+  <!-------------end EJS if statment----------------->
+  <!-- row total-->
    <div class="row">
-      <div class="col-4">
-      </div>
+      <div class="col-4"></div>
       <div class="col-3">
-          <h3>
-            Total
+        <h3>
+          Total
         </h3>
       </div>
       <div class="col-5">
-          <h3>
-            $<%=total%>
+        <h3>
+          $<%=total%>
         </h3>
       </div>
    </div>   
@@ -72,7 +70,7 @@
 
 <section class="checkout">
     <div class="d-flex justify-content-center">
-      <button class="confirm">
+      <button href="" class="confirm">
         Confirm Purchase
       </button> 
   </div>

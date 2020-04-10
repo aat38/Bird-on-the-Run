@@ -15,58 +15,47 @@
           </h2>
         </div>
     </div> 
-
-
     <div class="row">
         <div class="col-1">
         </div>
         <div class="col-11">
+          <!-- ###  menu item ############################################ -->
           <% if (locals.food) { %> 
             <% if (locals.cart) { %> 
               <% food.forEach(result=>{ %>
-
-  <!-- ###  menu item ############################################ -->
-              <ul> 
-
-                <div class="row">
-                  <div class="col-10">
-                    <li><%= result.item%>  <span class="price">$<%= result.price%></span></li>
+                <ul> 
+                  <div class="row">
+                    <div class="col-10">
+                      <li><%= result.item%>  <span class="price">$<%= result.price%></span></li>
+                    </div>
+                    <div class="button-group">
+                        <!--    increase quant of item to order    -->
+                        <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
+                        <!--    decrease quant of item to order    -->
+                        <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
+                         <!--    show quantity of item that has been added to your cart    -->
+                        <% var quantity=0%>
+                        <% for (var i=0; i<Object.keys(cart).length;i++){             %>
+                        <%  if (Object.values(cart)[i].item === result.item){         %>
+                        <%      quantity=quantity+1                                   %>
+                        <%  }                                                         %>
+                        <% }                                                          %>
+                        <span class="quantity"><%= quantity%></span>
+                    </div>  
                   </div>
-
-                  <div class="button-group">
-                      <!--    increase quant of item to order    -->
-                      <button onclick="add('<%= JSON.stringify(result) %>')" > + </button>
-
-                      <!--    decrease quant of item to order    -->
-                      <button onclick="del('<%= JSON.stringify(result) %>')" > - </button>
-
-                       <!--    show quantity of item that has been added to your cart    -->
-                      <% var quantity=0%>
-                      <% for (var i=0; i<Object.keys(cart).length;i++){             %>
-                      <%  if (Object.values(cart)[i].item === result.item){         %>
-                      <%      quantity=quantity+1                                   %>
-                      <%  }                                                         %>
-                      <% }                                                          %>
-                      <span class="quantity"><%= quantity%></span>
-                  </div>  
-                </div>
-
-                <div class="row">
-                  <div class="col-1">
+                  <div class="row">
+                    <div class="col-1">
+                    </div>
+                     <div class="col-10">
+                      <span class="ingredients"> <%=result.ingredients%></span>
+                    </div>                         
                   </div>
-                   <div class="col-10">
-                    <span class="ingredients"> <%=result.ingredients%></span>
-                  </div>                         
-                </div>
-
-              </ul>
-  <!-- ###  end menu item ############################################ -->
-
+                </ul>
               <% });%>
             <% }%> 
           <% }%>   
-
-        </div> 
+          <!-- ###  end menu item ############################################ -->
+       </div> 
     </div>  
   </section>
 
@@ -81,17 +70,15 @@
         <button class="refresh" type="button" onClick="window.location.reload();" >Refresh</button>
       </div>
     </div> 
-
     <div class="d-flex justify-content-center">
         <form id='checkout'>        
           <button class="checkout-button" formaction="/checkout" method"GET" type="submit">Checkout</button>
         </form>
     </div>
-    
   </section>  
-
 </body>
 
+<!--------------------------------------------------------------------->
 
 <script type=text/javascript>
  
@@ -134,6 +121,6 @@
   // //         console.log('errrr')
   // //     console.log(err);
   // //   })
-  // }
+  // } can't call this function from clear/refresh button while they are being used to send http request
   
 </script> 
