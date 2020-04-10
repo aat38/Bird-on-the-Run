@@ -12,21 +12,24 @@ header {
   margin-top:30px;
 }
 
-.item {
-  padding-top:2rem;
-  padding-bottom:2rem
-}
-
-button{
+.credit {
   color: fcab83;
-  border: solid;
-  border-color: fcab83;
-  background-color: white;
-  padding: 1.01rem;
-  border-radius: 5px !important;
-}
-
-.confirm {
+  font-size:15px;
   margin-top: 100px;
 }
 
+a:link {
+  color: ff9e6e;
+  text-decoration: none;
+}
+
+a:visited {
+  color: fa8246;
+  text-decoration: none;
+}
+
+.thanks{
+  color: fcab83;
+  padding:5rem;
+  font-size:2.5rem;
+}
