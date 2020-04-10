@@ -30,9 +30,9 @@ router.get("/checkout", function(req, res) {
 
 //delete entire cart
 router.get("/delete", function(req, res) {
-mongoose.connection.collections['carts'].drop( function(err) {
+mongoose.connection.collections['carts'].drop() 
     console.log('collection dropped');
-});
+    //getting stuck on return fuction -like the call is jst out in space and necver coming back- so deleted the callback function
 });
 
   
