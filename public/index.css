@@ -6,6 +6,9 @@
 header h1, li{
   font-family: bubbleFont;
 }
+.title{
+  margin-left:50px;
+}
 
 .button-group button{
   color: white;
@@ -28,7 +31,7 @@ ul li {
   font-family: sans-serif
 }
 
-.checkout-button{
+button .checkout{
   color: fcab83;
   border: solid;
   border-color: fcab83;

@@ -72,14 +72,26 @@
 
   <section class="checkout">
     <div class="row">  
+      <div class="col-9">
+      </div>
+      <div class="col-1">
         <form id='clearForm'>        
-          <button type="submit" id="clear-button" formaction="/delete">Clear Quantities</button>
+          <button type="submit" class="clear" formaction="/delete">Clear Quantities</button>
         </form>
-          <button type="button" onClick="window.location.reload();" >Refresh</button>
-        <form id='checkout'>        
-          <button class="checkout-button" formaction="/checkout" method"GET" type="submit">Checkout</button>
-        </form>
+      </div>
+      <div class="col-1">
+          <button class="refresh" type="button" onClick="window.location.reload();" >Refresh</button>
+      </div>
     </div> 
+    <div class="row"> 
+      <div class="col-9">
+      </div>
+      <div class="col-3">
+        <form id='checkout'>        
+          <button class="checkout" formaction="/checkout" method"GET" type="submit">Checkout</button>
+        </form>
+      </div>
+    </div>
   </section>  
 
 </body>

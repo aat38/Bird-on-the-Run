@@ -7,8 +7,14 @@ header {
   font-family: bubbleFont;
 }
 
+.title{
+  margin-left:50px;
+}
+
 .item {
-  padding:2rem
+  padding-top:2rem;
+  padding-bottom:2rem
+
 }
 
 button{
@@ -20,5 +26,5 @@ button{
 }
 
 .confirm {
-  margin-top: 200
+  margin-top: 100px;
 }
