@@ -102,17 +102,9 @@
 
   <section class="checkout">
     <div class="row">  
-        <form onsubmit="window.location.reload();">      
-          <button type="submit" id="clear-button" >Clear Quantities</button>
+        <form id='clearForm'>        
+          <button type="submit" id="clear-button" formaction="/delete">Clear Quantities</button>
         </form>        
-      
-      
-        <form formaction="/delete" >      
-
-      <button onClick="window.location.reload();">Refresh Page</button>
-      </form>
-      
-      
 
         <form id='checkout'>        
           <button  type="button" class="checkout-button" formaction="/checkout" method"GET" type="submit">Checkout</button>
