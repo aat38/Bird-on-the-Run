@@ -6,6 +6,3 @@
 ### Description
 Bird on the Run is a RESTful API connected to a MongoDB database to enable CRUDy operations. Server-side rendering using EJS and NodeJS. This project was made for Web Technologies and Standards, INFSCI 2560, at the University of Pittsburgh. This project is hosted on [Glitch](https://glitch.com/about).
 
-### Resources
-- [pass json info from ejs var to js](https://stackoverflow.com/questions/13788314/express-and-ejs-to-render-a-json)
-
